@@ -97,6 +97,10 @@ var EventHandlers = {
         curY: posY
       }
     });
+
+    if (this.props.onSwipeStart && typeof this.props.onSwipeStart === 'function') {
+      this.props.onSwipeStart(e);
+    }
   },
   // continuous invokation while swiping/dragging is going on
   swipeMove: function (e) {
@@ -297,6 +301,9 @@ var EventHandlers = {
       swipeLeft: null,
       touchObject: {}
     });
+    if (this.props.onSwipeEnd && typeof this.props.onSwipeEnd === 'function') {
+      this.props.onSwipeEnd(e);
+    }
     if (wasScrolling) {
       return;
     }
