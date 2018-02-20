@@ -60,7 +60,7 @@ get started with react-slick.
 
 ```js
 var React = require('react');
-var Slider = require('react-slick');
+import Slider from 'react-slick';
 
 class SimpleSlider extends React.Component {
   render: function () {
