@@ -147,9 +147,12 @@ Name              | Arguments       | Description
 #### Followings are not going to be implemented
 Name              |type             | Reason
 ------------------|-----------------|-------------------
-`unslick`         |method           | same functionality can be achieved with `unslick` prop
-`slickSetOption`  |method           | same functionality can be achieved via props and managing state for them in wrapper
-
+`unslick`         | method          | same functionality can be achieved with `unslick` prop
+`slickSetOption`  | method          | same functionality can be achieved via props and managing state for them in wrapper
+`slickFilter`     | method          | same functionality can be achieved as with dynamic slides, look at dynamic slides example
+`slickUnfilter`   | method          | same functionality can be achieved as with dynamic slides, look at dynamic slides example
+`slickAdd`        | method          | same functionality can be achieved as with dynamic slides, look at dynamic slides example
+`slickRemove`     | method          | same functionality can be achieved as with dynamic slides, look at dynamic slides example
 
 #### `responsive` property
 
