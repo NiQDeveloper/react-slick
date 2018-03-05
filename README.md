@@ -8,6 +8,7 @@ Forked from: https://github.com/akiran/react-slick
 
 ## [Documentation](http://react-slick.neostack.com)
 
+
 ### Installation
 
 **npm**
