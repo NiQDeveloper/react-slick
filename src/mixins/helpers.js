@@ -9,6 +9,7 @@ import { getOnDemandLazySlides, getWidth, getHeight, canGoNext } from '../utils/
 var helpers = {
   update: function (props, recursionLevel=0) {
     const slickList = ReactDOM.findDOMNode(this.list);
+    if (!slickList) return; // An update was requested, but the DOM node removed
     var slideCount = React.Children.count(props.children);
     var listWidth = getWidth(slickList);
     var trackWidth = getWidth(ReactDOM.findDOMNode(this.track));
@@ -68,6 +69,7 @@ var helpers = {
       var selector = '[data-index="' + this.state.currentSlide +'"]';
       if (this.list) {
         var slickList = ReactDOM.findDOMNode(this.list);
+        if (!slickList) return;
         var elem = slickList.querySelector(selector) || {};
         slickList.style.height = (elem.offsetHeight || 0) + 'px';
       }

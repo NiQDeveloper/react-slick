@@ -103,9 +103,13 @@ export const extractObject = (spec, keys) => {
 // get initialized state
 export const initializedState = spec => {
   // spec also contains listRef, trackRef
+  const listNode = ReactDOM.findDOMNode(spec.listRef);
+  const trackNode = ReactDOM.findDOMNode(spec.trackRef);
+  if (!listNode || !trackNode) return;
+
   let slideCount = React.Children.count(spec.children)
-  let listWidth = Math.ceil(getWidth(ReactDOM.findDOMNode(spec.listRef)))
-  let trackWidth = Math.ceil(getWidth(ReactDOM.findDOMNode(spec.trackRef)))
+  let listWidth = Math.ceil(getWidth(listNode))
+  let trackWidth = Math.ceil(getWidth(trackNode))
   let slideWidth
   if (!spec.vertical) {
     let centerPaddingAdj = spec.centerMode && parseInt(spec.centerPadding) * 2
@@ -117,9 +121,7 @@ export const initializedState = spec => {
   } else {
     slideWidth = listWidth
   }
-  let slideHeight = getHeight(
-    ReactDOM.findDOMNode(spec.listRef).querySelector('[data-index="0"]')
-  )
+  let slideHeight = getHeight(listNode.querySelector('[data-index="0"]'))
   let listHeight = slideHeight * spec.slidesToShow
   let currentSlide = spec.currentSlide || spec.initialSlide
   if (spec.rtl && !spec.currentSlide) {
